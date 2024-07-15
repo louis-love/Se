@@ -1,0 +1,13 @@
+version: '3'
+services:
+  shadowsocks:
+    image: shadowsocks/shadowsocks-libev
+    ports:
+      - "8388:8388/tcp"
+      - "8388:8388/udp"
+    environment:
+      - PASSWORD=your_password   # 替换为你自己的密码
+      - METHOD=aes-256-gcm       # 加密方式，可以根据需要更改
+      - TIMEOUT=300
+      - DNS_ADDR=8.8.8.8         # DNS 服务器地址
+    restart: always
